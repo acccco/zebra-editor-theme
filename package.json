@@ -1,0 +1,25 @@
+{
+  "name": "zebra-editor-theme",
+  "version": "1.0.0",
+  "description": "斑码编辑器主题",
+  "main": "index.js",
+  "scripts": {
+    "makeTheme": "gulp makeTheme"
+  },
+  "keywords": [
+    "zebra",
+    "editor",
+    "theme"
+  ],
+  "devDependencies": {
+    "fs-extra": "^9.0.1",
+    "gulp": "^4.0.2",
+    "gulp-postcss": "^8.0.0",
+    "gulp-rename": "^2.0.0",
+    "gulp-stylus": "^2.7.0",
+    "gulp-tap": "^2.0.0",
+    "postcss-scopify": "^0.1.9"
+  },
+  "author": "zebra",
+  "license": "ISC"
+}
