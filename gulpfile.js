@@ -5,10 +5,18 @@ const scopify = require("postcss-scopify");
 const rename = require("gulp-rename");
 const tap = require("gulp-tap");
 const fs = require("fs-extra");
+const minimist = require("minimist");
+
+const knownOptions = {
+  string: "n",
+  default: { n: ".zebra-editor-article" },
+};
+
+const options = minimist(process.argv.slice(2), knownOptions);
 
 async function makeTheme() {
   let json = [];
-  let stream = await src("./theme/*.styl")
+  return src("./theme/*.styl")
     .pipe(
       tap((file) => {
         let content = file.contents.toString().split("\n");
@@ -18,22 +26,20 @@ async function makeTheme() {
         json.push([
           fileName[0],
           authorInfo[authorInfo.length - 1],
-          nameInfo[nameInfo.length - 1]
+          nameInfo[nameInfo.length - 1],
         ]);
         fs.outputJson("./lib/index.json", json).catch(console.error);
-      })
+      }),
     )
     .pipe(stylus({ compress: true }))
     .pipe(dest("./lib/pure"))
-    .pipe(postcss([scopify(".zebra-editor-article")]))
+    .pipe(postcss([scopify(options.n)]))
     .pipe(
       rename({
-        suffix: ".scoped"
-      })
+        suffix: ".scoped",
+      }),
     )
     .pipe(dest("./lib/scoped"));
-
-  return stream;
 }
 
 exports.makeTheme = makeTheme;

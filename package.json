@@ -12,6 +12,7 @@
     "theme"
   ],
   "devDependencies": {
+    "minimist": "^1.2.5",
     "fs-extra": "^9.0.1",
     "gulp": "^4.0.2",
     "gulp-postcss": "^8.0.0",
