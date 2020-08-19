@@ -20,14 +20,16 @@ async function makeTheme() {
     .pipe(
       tap((file) => {
         let content = file.contents.toString().split("\n");
-        let nameInfo = content[0].split(" ");
-        let authorInfo = content[1].split(" ");
+        let name = "";
+        if (content[0].indexOf("//") === 0) {
+          name = content[0].split(" ").pop();
+        }
+        let author = "";
+        if (content[1].indexOf("//") === 0) {
+          author = content[1].split(" ").pop();
+        }
         let fileName = file.basename.split(".");
-        json.push([
-          fileName[0],
-          authorInfo[authorInfo.length - 1],
-          nameInfo[nameInfo.length - 1],
-        ]);
+        json.push([fileName[0], author, name]);
         fs.outputJson("./lib/index.json", json).catch(console.error);
       }),
     )
