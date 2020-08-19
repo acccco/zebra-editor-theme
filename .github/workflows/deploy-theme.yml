@@ -26,10 +26,10 @@ jobs:
         run: gulp makeTheme
 
       - name: Deploy theme
-        uses: easingthemes/ssh-deploy@v2.0.7
+        uses: appleboy/ssh-action@master
         env:
-          SSH_PRIVATE_KEY: ${{ secrets.DEPLOY_ACCESS_TOKEN }}
-          SOURCE: "lib/"
-          REMOTE_HOST: ${{ secrets.DEPLOY_HOST }}
-          REMOTE_USER: ${{ secrets.DEPLOY_USER }}
-          TARGET: ${{ secrets.DEPLOY_THEME_DIR }}
+          host: ${{ secrets.DEPLOY_HOST }}
+          username: ${{ secrets.DEPLOY_USER }}
+          key: ${{ secrets.DEPLOY_ACCESS_TOKEN }}
+          port: 22
+          script: whoami
