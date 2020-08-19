@@ -9,7 +9,7 @@ const minimist = require("minimist");
 
 const knownOptions = {
   string: "n",
-  default: { n: ".zebra-editor-article" },
+  default: { n: ".article-theme" },
 };
 
 const options = minimist(process.argv.slice(2), knownOptions);
@@ -32,14 +32,14 @@ async function makeTheme() {
       }),
     )
     .pipe(stylus({ compress: true }))
-    .pipe(dest("./lib/pure"))
+    .pipe(dest("./lib"))
     .pipe(postcss([scopify(options.n)]))
     .pipe(
       rename({
         suffix: ".scoped",
       }),
     )
-    .pipe(dest("./lib/scoped"));
+    .pipe(dest("./lib"));
 }
 
 exports.makeTheme = makeTheme;
