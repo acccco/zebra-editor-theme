@@ -25,11 +25,11 @@ jobs:
       - name: Build style
         run: gulp makeTheme
 
-      # - name: Deploy theme
-      #   uses: easingthemes/ssh-deploy@v2.0.7
-      #   env:
-      #     SSH_PRIVATE_KEY: ${{ secrets.DEPLOY_ACCESS_TOKEN }}
-      #     SOURCE: "lib/"
-      #     REMOTE_HOST: ${{ secrets.DEPLOY_HOST }}
-      #     REMOTE_USER: ${{ secrets.DEPLOY_USER }}
-      #     TARGET: ${{ secrets.DEPLOY_THEME_DIR }}
+      - name: Deploy theme
+        uses: easingthemes/ssh-deploy@v2.0.7
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.DEPLOY_ACCESS_TOKEN }}
+          SOURCE: "lib/"
+          REMOTE_HOST: ${{ secrets.DEPLOY_HOST }}
+          REMOTE_USER: ${{ secrets.DEPLOY_USER }}
+          TARGET: ${{ secrets.DEPLOY_THEME_DIR }}
