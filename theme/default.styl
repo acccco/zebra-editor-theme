@@ -1,14 +1,12 @@
 // 默认主题
 // 斑码
 
-article > first-child
-  margin-top 0 !important
-
-article > last-child
-  margin-bottom 0 !important
-
 article
   font-size 16px
+  & > first-child
+    margin-top 0 !important
+  & > last-child
+    margin-bottom 0 !important
 
 h1
 h2
@@ -37,37 +35,32 @@ blockquote
   border-left 0.25em solid #ccc
   background-color #fff
   overflow auto
-
-blockquote > :first-child
-  margin-top 0px
-
-blockquote > :last-child
-  margin-bottom 0px
-
-figure > *
-  margin 0
-
+  & > :first-child
+    margin-top 0px
+  & > :last-child
+    margin-bottom 0px
 
 table p
 li > *
   margin 4px 0
 
-img
-  max-width 100%
+table
 
-table td
-table th
-  min-width 2em
-  padding 0
-  border 1px solid #dfe2e5
-  word-break break-all
-  text-align center
+  tr
+    background-color #fff
+    &:nth-child(2n)
+      background-color #f6f8fa
 
-table tr
-  background-color #fff
+  td
+  th
+    min-width 2em
+    padding 0
+    border 1px solid #dfe2e5
+    word-break break-all
+    text-align center
 
-table tr:nth-child(2n)
-  background-color #f6f8fa
+figure > *
+  margin 0
 
 pre
   width 100%
@@ -77,24 +70,13 @@ pre
   background-color #f8f8f8
   overflow auto
 
-pre code
-  min-width 100%
-  padding 0
-  border-radius 0
-  font-size 1em
-  background-color unset
-  color unset
-
-code
-  padding 2px 4px
-  border-radius 4px
-  font-size 0.9em
-  font-family Consolas, monospace
-  background-color #f8f8f8
-
-.zebra-editor-inline-image img
-  display inline-block
-  max-height 3em
+  code
+    min-width 100%
+    padding 0
+    border-radius 0
+    font-size 1em
+    background-color unset
+    color unset
 
 hr
   height 0.25em
@@ -103,3 +85,17 @@ hr
   border-radius 10px
   margin 1.5em 0
   background-color #eee
+
+code
+  padding 2px 4px
+  border-radius 4px
+  font-size 0.9em
+  font-family Consolas, monospace
+  background-color #f8f8f8
+
+img
+  max-width 100%
+
+.zebra-editor-inline-image img
+  display inline-block
+  max-height 3em
