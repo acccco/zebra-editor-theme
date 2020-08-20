@@ -41,8 +41,8 @@ p {
 
 **注：** 
 
-1. [斑码编辑器](https://zebrastudio.tech)中不管主题如何，默认主题(`default`)始终会被引入，如果想保持一致性，请始终引入默认主题；
-2. 想获取带命名空间的主题，使用以下链接：https://zebrastudio.tech/theme/article/${文件名}.scoped.css。通过这种形式引入的主题，样式会带上 `article` 的命名空间。
+1. [斑码编辑器](https://zebrastudio.tech)中不管主题如何，默认主题( `default` )始终会被引入，为了保持一致性，请始终引入默认主题；
+2. 想获取带命名空间的主题，使用以下链接： https://zebrastudio.tech/theme/article/${文件名}.scoped.css 。通过这种形式引入的主题，样式会带上 `article` 的命名空间。
 
 ### fork 本项目
 
