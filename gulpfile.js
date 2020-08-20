@@ -9,7 +9,7 @@ const minimist = require("minimist");
 
 const knownOptions = {
   string: "n",
-  default: { n: ".article-theme" },
+  default: { n: "article" },
 };
 
 const options = minimist(process.argv.slice(2), knownOptions);
@@ -30,7 +30,7 @@ async function makeTheme() {
         }
         let fileName = file.basename.split(".");
         json.push([fileName[0], author, name]);
-        fs.outputJson("./lib/index.json", json).catch(console.error);
+        fs.outputJson("./lib/index.json", json);
       }),
     )
     .pipe(stylus({ compress: true }))
