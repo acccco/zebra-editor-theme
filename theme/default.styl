@@ -61,6 +61,7 @@ table
     text-align center
 
 figure
+  margin 16px auto
   & > :first-child
     margin-top 0
   & > :last-child
@@ -71,8 +72,17 @@ figure
 figcaption
   text-align center
   font-size 14px
-  color rgba(102,102,102,1)
+  color rgba(102, 102, 102, 1)
   margin .5em 2em
+  position relative
+  .empty::before
+    content "请输入内容描述"
+    color #ccc
+    position absolute
+    width 100%
+    top 0
+    left 0
+    z-index -1
 
 pre
   padding 10px
