@@ -26,12 +26,6 @@ figcaption
 p
   clear none
 
-figcaption
-  text-align center
-  font-size 14px
-  color rgba(102,102,102,1)
-  margin-top .5em
-
 ul
 ol
   padding 0 0 0 2em
@@ -66,8 +60,17 @@ table
     word-break break-all
     text-align center
 
-figure > *
-  margin 0
+figure
+  & > :first-child
+    margin-top 0px
+  & > :last-child
+    margin-bottom 0px
+
+figcaption
+  text-align center
+  font-size 14px
+  color rgba(102,102,102,1)
+  margin-top .5em
 
 pre
   padding 10px
